@@ -9,20 +9,26 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node_version: ['16', '18', '20']
+        os: [ubuntu-latest]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: yarn
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-      - name: Run test
-        run: yarn test
+          node-version: ${{ matrix.node_version }}
+          cache: pnpm
+
+      - name: Install and test
+        run: |
+          pnpm install
+          pnpm test
