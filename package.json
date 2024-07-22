@@ -1,5 +1,5 @@
 {
-  "name": "jscodeshift",
+  "name": "jscodeshift-x",
   "version": "0.16.1",
   "description": "A toolkit for JavaScript codemods",
   "repository": {
@@ -21,7 +21,7 @@
     "recast",
     "babel"
   ],
-  "author": "Felix Kling",
+  "author": "Pionxzh",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.24.7",
