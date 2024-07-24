@@ -160,21 +160,6 @@ describe('jscodeshift CLI', () => {
       ]);
     });
 
-    it('supports flow type annotations in transform files', () => {
-      const sourceA = createTempFileWith('a', 'sourceA', '.js');
-      const transform = createTransformWith(
-        'return (function() { "use strict"; const a: number = 42; }).toString();'
-      );
-      return Promise.all([
-        run(['-t', transform, sourceA]).then(
-          () => {
-            expect(readFile(sourceA).toString())
-              .toMatch(/a\s*=\s*42/);
-          }
-        ),
-      ]);
-    });
-
     it('supports Typescript type annotations in transform files', () => {
       const sourceA = createTempFileWith('a', 'sourceA', '.js');
       const transform = createTransformWith(

@@ -60,11 +60,10 @@ function setup(tr, babel) {
         {targets: {node: true}},
       ]);
     }
-    presets.push(
-      /\.tsx?$/.test(tr) ?
-        require('@babel/preset-typescript').default :
-        require('@babel/preset-flow').default
-    );
+
+    if (/\.tsx?$/.test(tr)) {
+      presets.push(require('@babel/preset-typescript').default);
+    }
 
     require('@babel/register')({
       configFile: false,
@@ -83,7 +82,6 @@ function setup(tr, babel) {
       ignore: [
         // Ignore parser related files
         /@babel\/parser/,
-        /\/flow-parser\//,
         /\/recast\//,
         /\/ast-types\//,
       ],

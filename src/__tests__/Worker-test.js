@@ -86,7 +86,7 @@ describe('Worker API', () => {
       });
     });
 
-    ['flow', 'babylon'].forEach(parser => {
+    ['babylon'].forEach(parser => {
       it(`uses ${parser} if configured as such`, done => {
         const worker = require('../Worker');
         const transformPath = getTransformForParser(parser);
@@ -102,7 +102,7 @@ describe('Worker API', () => {
       });
     });
 
-    ['babylon', 'flow', 'tsx'].forEach(parser => {
+    ['babylon', 'tsx'].forEach(parser => {
       it(`can parse JSX with ${parser}`, done => {
         const worker = require('../Worker');
         const transformPath = getTransformForParser(parser);
@@ -117,22 +117,6 @@ describe('Worker API', () => {
           expect(getFileContent(sourcePath)).toBe('changed');
           done();
         });
-      });
-    });
-
-    it('can parse enums with flow', done => {
-      const worker = require('../Worker');
-      const transformPath = getTransformForParser('flow');
-      const sourcePath = createTempFileWith(
-        'enum E {A, B}'
-      );
-      const emitter = worker([transformPath]);
-
-      emitter.send({files: [sourcePath]});
-      emitter.once('message', (data) => {
-        expect(data.status).toBe('ok');
-        expect(getFileContent(sourcePath)).toBe('changed');
-        done();
       });
     });
   });

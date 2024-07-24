@@ -109,14 +109,14 @@ const parser = require('../src/argsParser')
     },
     parser: {
       display_index: 9,
-      choices: ['babel', 'babylon', 'flow', 'ts', 'tsx'],
+      choices: ['babel', 'babylon', 'ts', 'tsx'],
       default: 'babel',
       help: 'the parser to use for parsing the source files'
     },
     parserConfig: {
       display_index: 10,
       full: 'parser-config',
-      help: 'path to a JSON file containing a custom parser configuration for flow or babylon',
+      help: 'path to a JSON file containing a custom parser configuration for babylon',
       metavar: 'FILE',
       process: file => JSON.parse(fs.readFileSync(file)),
     },
@@ -136,7 +136,6 @@ const parser = require('../src/argsParser')
           `jscodeshift: ${pkg.version}`,
           ` - babel: ${require('@babel/core').version}`,
           ` - babylon: ${requirePackage('@babel/parser').version}`,
-          ` - flow: ${requirePackage('flow-parser').version}`,
           ` - recast: ${requirePackage('recast').version}\n`,
         ].join('\n');
       },

@@ -29,18 +29,12 @@ dependencies:
   '@babel/preset-env':
     specifier: ^7.1.6
     version: 7.24.8(@babel/core@7.24.7)
-  '@babel/preset-flow':
-    specifier: ^7.24.7
-    version: 7.24.7(@babel/core@7.24.7)
   '@babel/preset-typescript':
     specifier: ^7.24.7
     version: 7.24.7(@babel/core@7.24.7)
   '@babel/register':
     specifier: ^7.24.6
     version: 7.24.6(@babel/core@7.24.7)
-  flow-parser:
-    specifier: 0.*
-    version: 0.237.2
   graceful-fs:
     specifier: ^4.2.4
     version: 4.2.11
@@ -532,16 +526,6 @@ packages:
       '@babel/helper-plugin-utils': 7.24.8
     dev: false
 
-  /@babel/plugin-syntax-flow@7.24.7(@babel/core@7.24.7):
-    resolution: {integrity: sha512-9G8GYT/dxn/D1IIKOUBmGX0mnmj46mGH9NnZyJLwtCpgh5f7D2VbuKodb+2s9m1Yavh1s7ASQN8lf0eqrb1LTw==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.24.7
-      '@babel/helper-plugin-utils': 7.24.7
-    dev: false
-
   /@babel/plugin-syntax-import-assertions@7.24.7(@babel/core@7.24.7):
     resolution: {integrity: sha512-Ec3NRUMoi8gskrkBe3fNmEQfxDvY8bgfQpz6jlk/41kX9eUjvpyqWU7PBP/pLAvMaSQjbMNKJmvX57jP+M6bPg==}
     engines: {node: '>=6.9.0'}
@@ -854,17 +838,6 @@ packages:
       '@babel/core': 7.24.7
       '@babel/helper-plugin-utils': 7.24.8
       '@babel/plugin-syntax-export-namespace-from': 7.8.3(@babel/core@7.24.7)
-    dev: false
-
-  /@babel/plugin-transform-flow-strip-types@7.24.7(@babel/core@7.24.7):
-    resolution: {integrity: sha512-cjRKJ7FobOH2eakx7Ja+KpJRj8+y+/SiB3ooYm/n2UJfxu0oEaOoxOinitkJcPqv9KxS0kxTGPUaR7L2XcXDXA==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.24.7
-      '@babel/helper-plugin-utils': 7.24.7
-      '@babel/plugin-syntax-flow': 7.24.7(@babel/core@7.24.7)
     dev: false
 
   /@babel/plugin-transform-for-of@7.24.7(@babel/core@7.24.7):
@@ -1381,18 +1354,6 @@ packages:
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /@babel/preset-flow@7.24.7(@babel/core@7.24.7):
-    resolution: {integrity: sha512-NL3Lo0NorCU607zU3NwRyJbpaB6E3t0xtd3LfAQKDfkeX4/ggcDXvkmkW42QWT5owUeW/jAe4hn+2qvkV1IbfQ==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.24.7
-      '@babel/helper-plugin-utils': 7.24.7
-      '@babel/helper-validator-option': 7.24.7
-      '@babel/plugin-transform-flow-strip-types': 7.24.7(@babel/core@7.24.7)
     dev: false
 
   /@babel/preset-modules@0.1.6-no-external-plugins(@babel/core@7.24.7):
@@ -2621,11 +2582,6 @@ packages:
   /flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
     dev: true
-
-  /flow-parser@0.237.2:
-    resolution: {integrity: sha512-mvI/kdfr3l1waaPbThPA8dJa77nHXrfZIun+SWvFwSwDjmeByU7mGJGRmv1+7guU6ccyLV8e1lqZA1lD4iMGnQ==}
-    engines: {node: '>=0.4.0'}
-    dev: false
 
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}

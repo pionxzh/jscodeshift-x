@@ -79,16 +79,6 @@ while (i < 10) {
     ).toEqual(expected);
   });
 
-  it('can be used with a different parser', () => {
-    const parser = require('../../parser/flow')();
-    const template = require('../template')(parser);
-    const node = {type: 'Literal', value: 41};
-
-    expect(
-      jscodeshift(template.expression`1 + ${node}`, {parser}).toSource()
-    ).toEqual('1 + 41');
-  });
-
   it('handles out-of-order traversal', () => {
     const input = 'var x';
     const expected = 'class X extends a {f(b) {}}';
@@ -120,7 +110,7 @@ while (i < 10) {
     .toEqual(expected);
   });
 
-  for (const parser of ['babel', 'babylon', 'flow', 'ts', 'tsx']) {
+  for (const parser of ['babel', 'babylon', 'ts', 'tsx']) {
     it(`asyncExpression correctly parses expressions with await -- ${parser}`, () => {
       const expected = '{\n  bar: await baz\n}'
       const j = jscodeshift.withParser(parser)

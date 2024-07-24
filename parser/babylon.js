@@ -17,8 +17,6 @@ const defaultOptions = {
   startLine: 1,
   tokens: true,
   plugins: [
-    ['flow', {all: true}],
-    'flowComments',
     'jsx',
 
     'asyncGenerators',

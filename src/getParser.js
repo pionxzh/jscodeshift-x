@@ -12,8 +12,6 @@ module.exports = function getParser(parserName, options) {
   switch (parserName) {
     case 'babylon':
       return require('../parser/babylon')(options);
-    case 'flow':
-      return require('../parser/flow')(options);
     case 'ts':
       return require('../parser/ts')(options);
     case 'tsx':
