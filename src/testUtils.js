@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/* global expect, describe, it */
-
 'use strict';
 
 const fs = require('fs');

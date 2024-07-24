@@ -21,7 +21,9 @@ const jscodeshift = require('./core');
 let presetEnv;
 try {
   presetEnv = require('@babel/preset-env');
-} catch (_) {}
+} catch {
+  // skip
+}
 
 let emitter;
 let finish;

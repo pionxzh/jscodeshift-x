@@ -11,6 +11,8 @@
   "scripts": {
     "prepare": "cp -R src/ dist/",
     "test": "jest --bail",
+    "lint": "eslint src --max-warnings=0",
+    "lint:fix": "eslint src --fix --max-warnings=0",
     "docs": "rm -rf docs && jsdoc -d docs -R README.md src/collections/* src/core.js src/Collection.js"
   },
   "bin": {

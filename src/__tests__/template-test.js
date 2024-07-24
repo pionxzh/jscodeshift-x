@@ -8,9 +8,6 @@
 
 'use strict';
 
-/*global jest, describe, it, expect, beforeEach*/
-
-
 describe('Templates', () => {
   let statements;
   let statement;

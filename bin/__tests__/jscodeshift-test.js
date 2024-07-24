@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*global jest, jasmine, xdescribe, it, expect, beforeEach*/
+/*global jasmine*/
 /*eslint camelcase: 0, no-unused-vars: 0*/
 
 jest.autoMockOff();
@@ -320,7 +320,7 @@ describe('jscodeshift CLI', () => {
       // Make the temp directory with our test files the current working directory
       let currPath = process.cwd();
       let tempDirPath = path.dirname(sources[0]);
-      process.chdir(tempDirPath);;
+      process.chdir(tempDirPath);
 
       return run(['-t', transform, '--gitignore'].concat(sources)).then(
         () => {

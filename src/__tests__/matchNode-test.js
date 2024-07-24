@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*global jest, describe, it, expect, beforeEach*/
-
 'use strict';
 
 const matchNode = require('../matchNode');

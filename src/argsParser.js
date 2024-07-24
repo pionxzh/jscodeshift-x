@@ -174,7 +174,9 @@ function parse(options, args=process.argv.slice(2)) {
             // Try to parse values as JSON to be compatible with nomnom
             try {
               return JSON.parse(value);
-            } catch(_e) {}
+            } catch {
+              // skip
+            }
             return value;
           },
         };

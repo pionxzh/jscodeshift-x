@@ -8,8 +8,6 @@
 
 'use strict';
 
-/*global jest, describe, it, expect*/
-
 const core = require('../core');
 const recast = require('recast');
 const b = recast.types.builders;
