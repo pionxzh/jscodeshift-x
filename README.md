@@ -570,12 +570,6 @@ defineInlineTest(transform, /* ... */)
 - [js-transforms](https://github.com/jhgg/js-transforms) - Some documented codemod experiments to help you learn.
 - [fix-js](https://github.com/anshckr/fix-js) - Codemods to fix some ESLint issues
 
-### Local Documentation Server
-
- To update docs in `/docs`, use `npm run docs`.
-
- To view these docs locally, use `npx http-server ./docs`
-
 ## VSCode Debugging
 
 It's recommended that you set up your codemod project to all debugging via the VSCode IDE. When you open your project in VSCode, add the following configuration to your launch.json debugging configuration.
