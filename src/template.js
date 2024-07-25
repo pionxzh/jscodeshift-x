@@ -32,7 +32,7 @@ function ensureStatement(node) {
     builders.expressionStatement(node);
 }
 
-function getVistor(varNames, nodes) {
+function getVisitor(varNames, nodes) {
   return {
     visitIdentifier: function(path) {
       this.traverse(path);
@@ -97,7 +97,7 @@ function getVistor(varNames, nodes) {
 
 function replaceNodes(src, varNames, nodes, parser) {
   const ast = recast.parse(src, {parser});
-  recast.visit(ast, getVistor(varNames, nodes));
+  recast.visit(ast, getVisitor(varNames, nodes));
   return ast;
 }
 
