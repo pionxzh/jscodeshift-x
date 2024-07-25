@@ -1,5 +1,14 @@
 # [jscodeshift](https://jscodeshift.com/) [![Support Ukraine](https://img.shields.io/badge/Support-Ukraine-FFD500?style=flat&labelColor=005BBB)](https://opensource.fb.com/support-ukraine) [![Build Status](https://img.shields.io/github/checks-status/facebook/jscodeshift/main?label=build)](https://github.com/facebook/jscodeshift/actions/workflows/test.yml?query=branch%3Amain)
 
+---
+
+This is a fork with changes to make it slim.
+- Removed CLI interface
+- Removed built-in `flow` parser
+- Removed `.renameTo` mixin method
+- Removed most of the dependencies
+- Use patched version of `recast`([recast-x](https://github.com/pionxzh/recasts-x)) and `ast-types`([ast-type-x](https://github.com/pionxzh/ast-types-x)). They fixed some bugs, merged some PRs and added some features since the original repo is not actively maintained.
+---
 
 jscodeshift is a toolkit for running codemods over multiple JavaScript or
 TypeScript files.
@@ -24,61 +33,6 @@ This will install the runner as `jscodeshift`.
 ## VSCode Debugger
 
 [Configure VSCode to debug codemods](#vscode-debugging)
-
-## Usage (CLI)
-
-The CLI provides the following options:
-
-```
-$ jscodeshift --help
-
-Usage: jscodeshift [OPTION]... PATH...
-  or:  jscodeshift [OPTION]... -t TRANSFORM_PATH PATH...
-  or:  jscodeshift [OPTION]... -t URL PATH...
-  or:  jscodeshift [OPTION]... --stdin < file_list.txt
-
-Apply transform logic in TRANSFORM_PATH (recursively) to every PATH.
-If --stdin is set, each line of the standard input is used as a path.
-
-Options:
-"..." behind an option means that it can be supplied multiple times.
-All options are also passed to the transformer, which means you can supply custom options that are not listed here.
-
-      --(no-)babel              apply babeljs to the transform file
-                                (default: true)
-  -c, --cpus=N                  start at most N child processes to process source files
-                                (default: max(all - 1, 1))
-  -d, --(no-)dry                dry run (no changes are made to files)
-                                (default: false)
-      --extensions=EXT          transform files with these file extensions (comma separated list)
-                                (default: js)
-  -h, --help                    print this help and exit
-      --ignore-config=FILE ...  ignore files if they match patterns sourced from a configuration file (e.g. a .gitignore)
-      --ignore-pattern=GLOB ...  ignore files that match a provided glob expression
-      --(no-)gitignore          adds entries the current directory's .gitignore file
-                                (default: false)
-      --parser=babel|babylon|flow|ts|tsx  the parser to use for parsing the source files
-                                          (default: babel)
-      --parser-config=FILE      path to a JSON file containing a custom parser configuration for flow or babylon
-  -p, --(no-)print              print transformed files to stdout, useful for development
-                                (default: false)
-      --(no-)run-in-band        run serially in the current process
-                                (default: false)
-  -s, --(no-)silent             do not write to stdout or stderr
-                                (default: false)
-      --(no-)stdin              read file/directory list from stdin
-                                (default: false)
-  -t, --transform=FILE          path to the transform file. Can be either a local path or url
-                                (default: ./transform.js)
-  -v, --verbose=0|1|2           show more information about the transform process
-                                (default: 0)
-      --version                 print version and exit
-      --fail-on-error           return a 1 exit code when errors were found during execution of codemods
-```
-
-This passes the source of all passed through the transform module specified
-with `-t` or `--transform` (defaults to `transform.js` in the current
-directory). The next section explains the structure of the transform module.
 
 ## Usage (JS)
 
