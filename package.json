@@ -9,7 +9,7 @@
   "bugs": "https://github.com/facebook/jscodeshift/issues",
   "main": "index.js",
   "scripts": {
-    "prepare": "cp -R src/ dist/",
+    "prepare": "cpy src/** !src/__tests__ dist",
     "test": "jest --bail",
     "lint": "eslint src --max-warnings=0",
     "lint:fix": "eslint src --fix --max-warnings=0"
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.24.8",
+    "cpy-cli": "^5.0.0",
     "eslint": "8.57.0",
     "jest": "^29.7.0"
   },
