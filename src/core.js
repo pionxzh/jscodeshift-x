@@ -10,11 +10,11 @@
 const Collection = require('./Collection');
 
 const collections = require('./collections');
-const getParser = require('./getParser');
 const matchNode = require('./matchNode');
 const recast = require('recast');
 const template = require('./template');
-
+const babel5Compat = require('../parser/babel5Compat');
+const defaultParser = babel5Compat();
 const Node = recast.types.namedTypes.Node;
 const NodePath = recast.types.NodePath;
 
@@ -77,7 +77,7 @@ function fromSource(source, options) {
     options = {};
   }
   if (!options.parser) {
-    options.parser = getParser();
+    options.parser = defaultParser;
   }
   return fromAST(recast.parse(source, options));
 }
@@ -129,10 +129,6 @@ function use(plugin) {
  * @static
  */
 function withParser(parser) {
-  if (typeof parser === 'string') {
-    parser = getParser(parser);
-  }
-
   const newCore = function(source, options) {
     if (options && !options.parser) {
       options.parser = parser;
@@ -180,4 +176,4 @@ function enrichCore(core, parser) {
   return core;
 }
 
-module.exports = enrichCore(core, getParser());
+module.exports = enrichCore(core, defaultParser);

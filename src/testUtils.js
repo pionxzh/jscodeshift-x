@@ -9,6 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const getParser = require('./getParser');
 
 function applyTransform(module, options, input, testOptions = {}) {
   // Handle ES6 modules using default export for the transform
@@ -18,7 +19,9 @@ function applyTransform(module, options, input, testOptions = {}) {
   // a fresh copy of jscodeshift on every test run.
   let jscodeshift = require('./core');
   if (testOptions.parser || module.parser) {
-    jscodeshift = jscodeshift.withParser(testOptions.parser || module.parser);
+    let parser = testOptions.parser || module.parser;
+    if (typeof parser === 'string') parser = getParser(parser);
+    jscodeshift = jscodeshift.withParser(parser);
   }
 
   const output = transform(
