@@ -8,6 +8,8 @@
 
 'use strict';
 
+const getParser = require('../getParser');
+
 describe('Templates', () => {
   let statements;
   let statement;
@@ -110,7 +112,7 @@ while (i < 10) {
   for (const parser of ['babel', 'babylon', 'ts', 'tsx']) {
     it(`asyncExpression correctly parses expressions with await -- ${parser}`, () => {
       const expected = '{\n  bar: await baz\n}'
-      const j = jscodeshift.withParser(parser)
+      const j = jscodeshift.withParser(getParser(parser))
 
       expect(j(j.template.asyncExpression`{\n  bar: await baz\n}`).toSource()).toEqual(expected)
     })
