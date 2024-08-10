@@ -9,8 +9,8 @@ dependencies:
     specifier: ^7.24.7
     version: 7.24.7
   recast:
-    specifier: npm:recast-x@1.0.1
-    version: /recast-x@1.0.1
+    specifier: npm:recast-x@1.0.2
+    version: /recast-x@1.0.2
 
 devDependencies:
   '@babel/eslint-parser':
@@ -2571,8 +2571,8 @@ packages:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
     dev: true
 
-  /recast-x@1.0.1:
-    resolution: {integrity: sha512-+ZCVX6l4njkiZHhfgUJ4wrdp4yWugrSEV5ll+DFSTO8WGI+qDJyHujUDx1fe911DFzG1ltFFwzQC92GLObxQJA==}
+  /recast-x@1.0.2:
+    resolution: {integrity: sha512-Cahk8Vy/I9ZuYx2V1RebRLfZAHOOhDRmSmTnUog8qwSVzhYWe26foH1Ub2yOajRVop91yGiuKF6LD5aEAV7pIA==}
     engines: {node: '>= 4'}
     dependencies:
       ast-types: /ast-types-x@1.17.0
