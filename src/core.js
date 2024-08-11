@@ -12,7 +12,7 @@ const Collection = require('./Collection');
 const collections = require('./collections');
 const matchNode = require('./matchNode');
 const recast = require('recast');
-const template = require('./template');
+// const template = require('./template');
 const babel5Compat = require('../parser/babel5Compat');
 const defaultParser = babel5Compat();
 const Node = recast.types.namedTypes.Node;
@@ -147,7 +147,7 @@ function withParser(parser) {
 * @see {@link https://github.com/benjamn/ast-types}
 */
 
-function enrichCore(core, parser) {
+function enrichCore(core) {
   // add builders and types to the function for simple access
   Object.assign(core, recast.types.namedTypes);
   Object.assign(core, recast.types.builders);
@@ -158,7 +158,7 @@ function enrichCore(core, parser) {
   */
   core.types = recast.types;
   core.match = match;
-  core.template = template(parser);
+  // core.template = template(parser);
 
   // add mappings and filters to function
   core.filters = {};
@@ -176,4 +176,4 @@ function enrichCore(core, parser) {
   return core;
 }
 
-module.exports = enrichCore(core, defaultParser);
+module.exports = enrichCore(core);

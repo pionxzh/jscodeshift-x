@@ -7,6 +7,7 @@ This is a fork with changes to make it slim.
 - Removed built-in `flow` parser
 - Removed `.renameTo` mixin method
 - Removed most of the dependencies
+- Removed `core.template` method
 - Use patched version of `recast`([recast-x](https://github.com/pionxzh/recasts-x)) and `ast-types`([ast-type-x](https://github.com/pionxzh/ast-types-x)). They fixed some bugs, merged some PRs and added some features since the original repo is not actively maintained.
 ---
 

@@ -10,7 +10,7 @@
 
 const getParser = require('../getParser');
 
-describe('Templates', () => {
+describe.skip('Templates', () => {
   let statements;
   let statement;
   let expression;
